@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome Petopia | Largest pet selling web</title>
+  <link rel="shortcut icon" href="./images/logo.webp" type="image/x-icon">
+  <!-- Css -->
+   <link rel="stylesheet" href="css/style.css">
+  <!-- Css -->
+
+  <!-- Tailwind & DaisyUI  -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.12/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Tailwind & DaisyUI  -->
+
+  <!-- Customize tailwind  -->
+   <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            clifford: '#da373d',
+            'primary-color': '#0E7A81',
+            'secondary-color': 'rgba(19, 19, 19, 0.7)',
+            'text-black': '#131313',
+          }
+        }
+      }
+    }
+  </script>
+  <!-- Customize tailwind  -->
+
+</head>
+<body>
+  <!-- Header section  -->
+  <!-- Header -->
+<!-- after:absolute after:top-full after:left-0 after:z-10 after:block after:h-px after:w-full after:bg-slate-200 -->
+  <header
+    class="z-20 w-full border-b shadow-lg border-slate-200 bg-white/90 shadow-slate-700/5  lg:border-slate-200 lg:backdrop-blur-sm sticky top-0">
+    <div class="max-w-screen-xl relative mx-auto px-4">
+      <nav class="flex h-[5.5rem] items-stretch justify-between font-medium text-slate-700 font-inter">
+        <!-- Brand logo -->
+        <div 
+          class="flex items-center gap-2 py-3 text-lg whitespace-nowrap focus:outline-none lg:flex-1">
+          <span><img src="./images/logo.webp" alt=""></span>
+          <span class=" font-bold text-3xl">Petopia</span>
+        </div>
+        <!-- Mobile trigger -->
+        <button id="hamburger-btn" class="relative self-center order-10 visible block w-10 h-10 opacity-100 md:hidden">
+          <div class="absolute w-6 transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+            <span aria-hidden="true"
+              class="absolute block h-0.5 w-9/12 -translate-y-2 transform rounded-full bg-slate-900 transition-all duration-300"></span>
+            <span aria-hidden="true"
+              class="absolute block h-0.5 w-6 transform rounded-full bg-slate-900 transition duration-300"></span>
+            <span aria-hidden="true"
+              class="absolute block h-0.5 w-1/2 origin-top-left translate-y-2 transform rounded-full bg-slate-900 transition-all duration-300"></span>
+          </div>
+        </button>
+        <!-- Navigation links -->
+        <div id="hamburger-menu"
+          class="absolute hidden inset-x-0 top-20 z-20 w-full px-6 py-4 transition-all duration-300 ease-in-out bg-white  md:mt-0 md:p-0 md:top-0 md:relative md:bg-transparent md:w-auto md:opacity-100 md:translate-x-0 md:flex md:items-center shadow-md md:shadow-none">
+          <div class="flex flex-col md:flex-row items-center md:mx-6 lg:order-1 gap-4">
+            <a href="" class="px-4 hover:text-primary-color duration-300 ease-in-out">
+              Home
+            </a>
+            <a href="" class="px-4 hover:text-primary-color duration-300 ease-in-out">
+              Shop
+            </a>
+            <a href="" class="px-4 hover:text-primary-color duration-300 ease-in-out">
+              Contact
+            </a>
+          </div>
+        </div>
+        <!-- Actions -->
+        <div class="flex items-center justify-end px-6 ml-auto lg:ml-0 lg:flex-1 lg:p-0">
+          <a href="#"
+            class="relative inline-flex items-center justify-center w-10 h-10 text-lg rounded-full border border-slate-200 hover:bg-slate-100 duration-300 ease-in-out">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none">
+              <g clip-path="url(#clip0_2081_182)">
+                <path
+                  d="M8 7C8 8.06087 8.42143 9.07828 9.17157 9.82843C9.92172 10.5786 10.9391 11 12 11C13.0609 11 14.0783 10.5786 14.8284 9.82843C15.5786 9.07828 16 8.06087 16 7C16 5.93913 15.5786 4.92172 14.8284 4.17157C14.0783 3.42143 13.0609 3 12 3C10.9391 3 9.92172 3.42143 9.17157 4.17157C8.42143 4.92172 8 5.93913 8 7Z"
+                  stroke="#131313" stroke-opacity="0.7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                <path
+                  d="M6 21V19C6 17.9391 6.42143 16.9217 7.17157 16.1716C7.92172 15.4214 8.93913 15 10 15H14C15.0609 15 16.0783 15.4214 16.8284 16.1716C17.5786 16.9217 18 17.9391 18 19V21"
+                  stroke="#131313" stroke-opacity="0.7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              </g>
+            </svg>
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <!-- Header section  -->
+  <main>
+    <!-- Banner section  -->
+     <section class="max-w-screen-xl mx-auto px-4 flex items-center justify-center text-center py-12">
+        <div class=" space-y-6">
+          <div class="space-y-5">
+            <p class="font-bold text-lg font-lato text-secondary-color">Bringing Families Together ❤️‍🔥</p>
+            <h1 class="text-text-black font-extrabold text-3xl md:text-4xl lg:text-5xl font-lato">Your Path to Adoption <br> Starts Here</h1>
+            <p class="text-base font-normal text-text-black max-w-[750px]">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its
+            layout. The point of using Lorem Ipsum is that it has a.</p>
+            <button class="py-3 px-6 bg-primary-color rounded-md text-white font-lato font-medium">View More</button>
+          </div>
+          <div>
+            <img src="./images/pet.webp" alt="" class="mx-auto h-full">
+          </div>
+        </div>
+     </section>
+    <!-- Banner section  -->
+
+    <!-- Adopt your best friend section  -->
+     <section class="max-w-screen-xl mx-auto px-4">
+        <!-- title  -->
+        <div>
+
+        </div>
+
+        <!-- Category button  -->
+         <div>
+          
+         </div>
+        <!-- Category button  -->
+     </section>
+    <!-- Adopt your best friend section  -->
+  </main>
+
+  <!-- Js file -->
+   <script src="./js/app.js"></script>
+</body>
+</html>
