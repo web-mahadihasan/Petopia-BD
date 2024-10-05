@@ -106,7 +106,9 @@
             <h1 class="text-text-black font-extrabold text-3xl md:text-4xl lg:text-5xl font-lato">Your Path to Adoption <br> Starts Here</h1>
             <p class="text-base font-normal text-text-black max-w-[750px]">Explore a world of adorable pets waiting to become a part of your family. From loyal dogs to playful cats, Dogs, Birds makes it easy to bring home a new furry companion. Start your journey now and give <br> a loving pet the forever
             home they deserve!</p>
-            <button class="py-3 px-6 bg-primary-color rounded-md text-white font-lato font-medium">View More</button>
+            <div>
+              <a href="#main" class="py-3 px-6 bg-primary-color rounded-md text-white font-lato font-medium hover:bg-primary-color/85 duration-300 ease-in-out cursor-pointer">View More</a>
+            </div>
           </div>
           <div>
             <img src="./images/pet.webp" alt="" class="mx-auto h-full">
@@ -116,7 +118,7 @@
     <!-- Banner section  -->
 
     <!-- Adopt your best friend section  -->
-     <section class="max-w-screen-xl mx-auto px-4">
+     <section id="main" class="max-w-screen-xl mx-auto px-4">
         <!-- title  -->
         <div class="text-center py-12 font-lato">
           <h3 class="text-text-black font-bold text-3xl">Adopt Your Best Friend</h3>
@@ -125,25 +127,25 @@
         </div>
 
         <!-- Category button  -->
-         <div class="flex justify-between items-center">
+         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 justify-items-center">
 
-          <button class="flex items-center gap-1 py-3 px-16 border border-gray-200 rounded-xl">
-            <span><img src="./images/cats.svg" alt=""></span>
+          <button class="flex items-center gap-1 py-3 px-16 border border-gray-200 rounded-xl justify-center ">
+            <span><img src="./images/cats.svg" alt="" class="w-12"></span>
             <span class="font-bold text-text-black font-inter text-2xl">Cats</span>
           </button>
 
-          <button class="flex items-center gap-1 py-3 px-16 border border-gray-200 rounded-xl">
-            <span><img src="./images/cats.svg" alt=""></span>
+          <button class="flex items-center gap-1 py-3 px-16 border border-gray-200 rounded-full justify-center ">
+            <span><img src="./images/cats.svg" alt="" class="w-12"></span>
             <span class="font-bold text-text-black font-inter text-2xl">Cats</span>
           </button>
 
-          <button class="flex items-center gap-1 py-3 px-16 border border-gray-200 rounded-xl">
-            <span><img src="./images/cats.svg" alt=""></span>
+          <button class="flex items-center gap-1 py-3 px-16 border border-gray-200 rounded-xl justify-center">
+            <span><img src="./images/cats.svg" alt="" class="w-12"></span>
             <span class="font-bold text-text-black font-inter text-2xl">Cats</span>
           </button>
 
-          <button class="flex items-center gap-1 py-3 px-16 border border-gray-200 rounded-xl">
-            <span><img src="./images/cats.svg" alt=""></span>
+          <button class="flex items-center gap-1 py-3 px-16 border border-gray-200 rounded-xl justify-center">
+            <span><img src="./images/cats.svg" alt="" class="w-12"></span>
             <span class="font-bold text-text-black font-inter text-2xl">Cats</span>
           </button>
 
@@ -153,54 +155,209 @@
     <!-- Adopt your best friend section  -->
 
     <!-- Display card section  -->
-     <section class="max-w-screen-xl mx-auto px-4 py-8">
+     <section id="" class="max-w-screen-xl mx-auto px-4 py-8">
         <div class="flex justify-between items-center py-8">
           <h3 class="font-extrabold font-lato text-2xl text-text-black">Best Deal For you</h3>
-          <button class="py-3 px-6 bg-primary-color rounded-md text-white font-lato font-medium">Sort by Price</button>
+          <button class="py-3 px-6 bg-primary-color rounded-md text-white font-lato font-medium hover:bg-primary-color/85 duration-300 ease-in-out">Sort by Price</button>
         </div>
 
         <!-- pet cards -->
-         <div>
+         <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
 
-          <div class=" bg-base-100 w-96 shadow border border-gray-100 p-5 rounded-xl">
+          <div class="col-span-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border border-red-400">
+
+          <!-- Loader  -->
+            <div class="hidden col-span-3 rounded-xl bg-[#F8F8F8]">
+              <div class="flex h-[500px] justify-center items-center ">
+                
+              </div>
+            </div>
+          <!-- Loader  -->
+
+          <!-- if Category not found  -->
+           <div class="hidden col-span-3 rounded-xl bg-[#F8F8F8]">
+            <div class="flex h-[500px] justify-center items-center ">
+              <div class="flex flex-col justify-center items-center space-y-3">
+                <img src="./images/error.webp" alt="">
+                <h3 class="font-inter font-bold text-2xl text-text-black">No Information Available</h3>
+                <p class="text-base font-normal font-inter text-secondary-color max-w-[700px] text-center">It is a long established
+                  fact that a reader will be distracted by the readable content of a page when looking at
+                  its layout. The point of using Lorem Ipsum is that it has a.</p>
+              </div>
+            </div>
+           </div>
+
+          <div class=" bg-base-100 shadow border border-gray-100 p-4 gap-4 rounded-xl">
             <figure>
-              <img src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp" alt="Shoes" class="rounded-xl"/>
+              <img src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp" alt="Shoes"
+                class="rounded-xl h-[200px] w-full" />
             </figure>
             <div class="py-4 space-y-1">
-              <h2 class="">Shoes!</h2>
-              <div>
-                <span><i class="ri-function-add-line"></i></span>
-                <span>Breed: <span>Golder retriever</span></span>
+              <h2 class="font-inter font-bold text-xl text-text-black">Mister Tartosh</h2>
+              <div class="text-secondary-color font-lato">
+                <span><i class="ri-function-add-line text-xl font-medium align-middle"></i></span>
+                <span class="ml-1">Breed: <span>Golder retriever</span></span>
               </div>
-              <div>
-                <span><i class="ri-calendar-schedule-line"></i></span>
-                <span>Birth: <span>2024</span></span>
+              <div class="text-secondary-color font-lato">
+                <span><i class="ri-calendar-schedule-line text-xl font-medium align-middle"></i></span>
+                <span class="ml-1">Birth: <span>2024</span></span>
               </div>
-              <div>
-                <span><i class="ri-share-line"></i></span>
-                <span>Gender: <span>Female</span></span>
+              <div class="text-secondary-color font-lato">
+                <span><i class="ri-share-line text-xl font-medium align-middle"></i></span>
+                <span class="ml-1">Gender: <span>Female</span></span>
               </div>
-              <div class="pb-1">
-                <span><i class="ri-money-dollar-circle-line"></i></span>
-                <span>Price : <span>Price : 199$</span></span>
+              <div class="pb-1 text-secondary-color font-lato">
+                <span><i class="ri-money-dollar-circle-line text-xl font-medium align-middle"></i></span>
+                <span class="ml-1">Price : <span>Price : 199$</span></span>
               </div>
               <div class="border-t border-gray-200"></div>
               <div class="pt-3 flex justify-between items-center">
-                <button class="flex flex-col py-1 px-6 rounded-md border border-primary-color/20 font-lato text-xl text-gray-500">
+                <button class="flex flex-col py-1 px-4 rounded-md border border-primary-color/20 font-lato text-xl text-gray-500">
                   <span><i class="ri-thumb-up-line"></i></span>
                   <span class="hidden"><i class="ri-thumb-up-fill"></i></span>
                 </button>
-                <button class="py-1 px-6 rounded-md border border-primary-color/20 font-semibold font-lato text-lg text-primary-color">Adopt</button>
-                <button class="py-1 px-6 rounded-md border border-primary-color/20 font-semibold font-lato text-lg text-primary-color">Details</button>
+                <button
+                  class="py-1 px-4 rounded-md border border-primary-color/20 font-semibold font-lato text-lg text-primary-color">Adopt</button>
+                <button
+                  class="py-1 px-4 rounded-md border border-primary-color/20 font-semibold font-lato text-lg text-primary-color">Details</button>
               </div>
             </div>
           </div>
 
+          </div>
+
+          <!-- pet adopt image -->
+          <div class="col-span-1 border border-red-400 p-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-2 gap-4">
+
+            <div>
+              <img src="" alt="" class="h-[120px] w-full rounded-lg">
+            </div>
+
+          </div>
          </div>
+     </section>
+
+     <!-- Modal section  -->
+     <section class="max-w-screen-xl mx-auto px-4 py-8">
+      <!-- modal one  -->
+       <div>
+        <!-- Open the modal using ID.showModal() method -->
+        <button class="btn" onclick="my_modal_1.showModal()">open modal</button>
+        <dialog id="my_modal_1" class="modal">
+          <div class="modal-box p-8">
+            <figure>
+              <img src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp" alt="Shoes"
+                class="rounded-xl h-full w-full" />
+            </figure>
+            <div class="py-4 space-y-1">
+              <h2 class="font-inter font-bold text-xl py-2 text-text-black">Mister Tartosh</h2>
+              <div class="flex justify-between pb-4">
+
+                <div class="space-y-2">
+                  <div class="text-secondary-color font-lato">
+                    <span><i class="ri-function-add-line text-xl font-medium align-middle"></i></span>
+                    <span class="ml-1">Breed: <span>Golder retriever</span></span>
+                  </div>
+                  <div class="text-secondary-color font-lato">
+                    <span><i class="ri-share-line text-xl font-medium align-middle"></i></span>
+                    <span class="ml-1">Gender: <span>Female</span></span>
+                  </div>
+                  <div class="text-secondary-color font-lato">
+                    <span><i class="ri-share-line text-xl font-medium align-middle"></i></span>
+                    <span class="ml-1">Vaccinated status: <span>Partially</span></span>
+                  </div>
+                </div>
+
+                <div class="space-y-2">
+                  <div class="text-secondary-color font-lato">
+                    <span><i class="ri-calendar-schedule-line text-xl font-medium align-middle"></i></span>
+                    <span class="ml-1">Birth: <span>2024</span></span>
+                  </div>
+                  <div class=" text-secondary-color font-lato">
+                    <span><i class="ri-money-dollar-circle-line text-xl font-medium align-middle"></i></span>
+                    <span class="ml-1">Price : <span>Price : 199$</span></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="border-t border-gray-200"></div>
+              <div class="pt-5">
+                <h3 class="text-lg font-bold font-inter text-text-black font-inter">Details Information</h3>
+                <p class="text-base py-3 font-normal font-inter text-secondary-color">
+                  It is a long established fact that a reader will be distracted by the readable content of a page when looking at its
+                  layout.
+                  The point of using is that it has a more-or-less normal distribution of letters, as opposed to using.
+                </p>
+              </div>
+            </div>
+
+            <div class="w-full">
+              <form method="dialog">
+                <!-- if there is a button in form, it will close the modal -->
+                <button class="btn w-full bg-[#EFF2F2] border border-primary-color/20 hover:bg-primary-color hover:text-white">Close</button>
+              </form>
+            </div>
+          </div>
+        </dialog>
+       </div>
+
+       <!-- modal two  -->
+        <div>
+          <!-- Open the modal using ID.showModal() method -->
+          <button class="btn" onclick="my_modal_2.showModal()">open modal</button>
+          <dialog id="my_modal_2" class="modal">
+            <div class="modal-box">
+              <h3 class="text-lg font-bold">Hello!</h3>
+              <p class="py-4">Press ESC key or click the button below to close</p>
+
+            <div class="w-full">
+              <form method="dialog">
+                <!-- if there is a button in form, it will close the modal -->
+                <button
+                  class="btn w-full bg-[#EFF2F2] border border-primary-color/20 hover:bg-primary-color hover:text-white">Close</button>
+              </form>
+            </div>
+            </div>
+          </dialog>
+        </div>
      </section>
     <!-- Display card section  -->
   </main>
 
+  <!-- Footer section  -->
+  <footer class="bg-[#131313] text-white px-4">
+    <section class="max-w-screen-xl mx-auto py-12 px-4 flex flex-col md:flex-row space-y-8 md:space-y-0 justify-between">
+      <nav class="space-y-2">
+        <div class="flex items-center gap-2 py-3 text-lg whitespace-nowrap focus:outline-none lg:flex-1">
+          <span><img src="./images/logo.webp" alt=""></span>
+          <span class=" font-bold text-3xl font-lato">Petopia</span>
+        </div>
+        <p class="text-base font-normal font-lato text-white/90">Location: ave. Washington 165, NY CA 54003</p>
+        <p class="text-base font-normal font-lato text-white/90">Phone: +31 85 964 47 25</p>
+        <p class="text-base font-normal font-lato text-white/90">Email: info@petopiabd.netlify.app</p>
+        <p class="text-base font-normal font-lato text-white/90">Openings hours: 9.00 AM - 5.00 PM</p>
+      </nav>
+      <nav class="flex flex-col space-y-3">
+        <h6 class="font-bold text-xl text-white/80">Useful Links</h6>
+        <a class="text-base font-normal font-lato text-white/90 hover:text-primary-color duration-300 ease-in-out cursor-pointer">About us</a>
+        <a class="text-base font-normal font-lato text-white/90 hover:text-primary-color duration-300 ease-in-out cursor-pointer">Animals</a>
+        <a class="text-base font-normal font-lato text-white/90 hover:text-primary-color duration-300 ease-in-out cursor-pointer">Foundation</a>
+        <a class="text-base font-normal font-lato text-white/90 hover:text-primary-color duration-300 ease-in-out cursor-pointer">Contact</a>
+      </nav>
+      <nav class="text-left md:text-center flex flex-col space-y-3">
+        <h6 class="font-bold text-xl text-white/80">Drop a Message</h6>
+        <input type="email" name="" id="" class="py-3 px-3 rounded-md bg-white/5 border border-primary-color focus:outline focus:outline-primary-color placeholder-gray-300" placeholder="Enter your email...">
+        <button class="py-3 px-6 bg-primary-color rounded-md text-white font-lato font-medium hover:bg-primary-color/80 duration-300 ease-in-out">Subscribe</button>
+      </nav>
+    </section>
+    <!-- copyright section  -->
+    <section class="flex justify-center items-center py-3 border-t border-gray-700">
+      <div>
+        <p>&copy; Copyright 2024. All right & reserved by Petopia</p>
+      </div>
+    </section>
+  </footer>
+  <!-- Footer section  -->
   <!-- Js file -->
    <script src="./js/app.js"></script>
 </body>
