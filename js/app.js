@@ -268,7 +268,7 @@ const petDetailsDisplay = (detailsData) => {
                   </div>
                   <div class=" text-secondary-color font-lato">
                     <span><i class="ri-money-dollar-circle-line text-xl font-medium align-middle"></i></span>
-                    <span class="ml-1">Price : <span>Price : ${price || "Not available"}</span></span>
+                    <span class="ml-1">Price : <span>Price : $${price || "Not available"}</span></span>
                   </div>
                 </div>
               </div>
