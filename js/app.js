@@ -11,7 +11,6 @@ const petCardsContainer = document.getElementById("pet-cards-container");
 const petsNotFoundContainer = document.getElementById("pets-not-found");
 
 
-
 // Load category btn 
 const loadCategory = async () => {
   const res = await fetch(`https://openapi.programming-hero.com/api/peddy/categories`);
@@ -28,7 +27,6 @@ const loadPetsCard = async () => {
   displayPetsData(allPets);
 }
 
-let lastCategoryBtnClick = null;
 // Category btn functionality & show category pets
 const categoriesPetsDisplay = async (category) => {
   const res = await fetch(`https://openapi.programming-hero.com/api/peddy/category/${category}`);
@@ -36,8 +34,8 @@ const categoriesPetsDisplay = async (category) => {
   const categoryData = data.data;
   displayPetsData(categoryData);
 
-  //category btn active color add & remove
-  const allCategoryBtn = document.getElementsByClassName("category-btn");
+//category btn active color add & remove
+const allCategoryBtn = document.getElementsByClassName("category-btn");
   for(const btn of allCategoryBtn){
     btn.classList.add("border-gray-200", "rounded-xl");
     btn.classList.remove("rounded-full", "border-primary-color/50", "bg-primary-color/10");
@@ -56,8 +54,8 @@ const displayCategoriesBtn = (categories) => {
   categories.forEach(btnData => {
     const div = document.createElement("div");
     div.innerHTML = `
-      <button id="${btnData.category}" onclick="categoriesPetsDisplay('${btnData.category}')" class="category-btn flex items-center gap-1 py-3 px-16 border border-gray-200 rounded-xl justify-center ">
-        <span><img src="${btnData.category_icon}" alt="" class="w-12"></span>
+      <button id="${btnData.category}" onclick="categoriesPetsDisplay('${btnData.category}')" class="category-btn flex items-center gap-1 py-3 border border-gray-200 rounded-xl justify-center w-3/4 mx-auto">
+        <span><img src="${btnData.category_icon}" alt="" class="w-10"></span>
         <span class="font-bold text-text-black font-inter text-2xl">${btnData.category}</span>
       </button>
     `;
@@ -75,9 +73,9 @@ const displayPetsData = (allPets) => {
   }else{
     petsNotFoundContainer.classList.add("hidden");
   }
-
+  showLoading();
   sortedData(allPets);
-  
+
   allPets.forEach(petsData => {
     const {petId, breed, image, pet_name, date_of_birth, gender, price } = petsData;
     const div = document.createElement("div");
@@ -120,12 +118,12 @@ const displayPetsData = (allPets) => {
           <div class="border-t border-gray-200"></div>
 
           <div class="pt-3 flex justify-between items-center">
-            <button onclick="likedPets(${petId})" class="flex flex-col py-1 px-4 rounded-md border border-primary-color/20 font-lato text-xl text-gray-500">
+            <button onclick="likedPets(${image})" class="flex flex-col py-1 px-4 rounded-md border border-primary-color/20 font-lato text-xl text-gray-500">
               <span id="normal-${petId}"><i class="ri-thumb-up-line"></i></span>
               <span id="liked-${petId}" class="hidden text-primary-color"><i class="ri-thumb-up-fill"></i></span>
             </button>
-            <button class="py-1 px-4 rounded-md border border-primary-color/20 font-semibold font-lato text-lg text-primary-color">Adopt</button>
-            <button onclick="showDetails(${petId})" class="py-1 px-4 rounded-md border border-primary-color/20 font-semibold font-lato text-lg text-primary-color">Details</button>
+            <button id="adoption-btn-${petId}" onclick="adoptionStart(${petId})" class="py-1 px-4 rounded-md border border-primary-color/20 font-semibold font-lato text-base text-primary-color hover:bg-primary-color hover:text-white duration-300 ease-in-out">Adopt</button>
+            <button onclick="showDetails(${petId})" class="py-1 px-4 rounded-md border border-primary-color/20 font-semibold font-lato text-base text-primary-color hover:bg-primary-color hover:text-white duration-300 ease-in-out">Details</button>
           </div>
         </div>
       </div>
@@ -158,28 +156,85 @@ const sortedData = (sortData) => {
 
 
 // Like button functionality
-const likedPets = async (id) => {
+const likedPets = (petImg) => {
   const likeUnClick = document.getElementById(`normal-${id}`);
   likeUnClick.classList.add("hidden");
   const likeClick = document.getElementById(`liked-${id}`);
-  likeClick.classList.remove("hidden")
+  likeClick.classList.remove("hidden");
 
-  const res = await fetch(`https://openapi.programming-hero.com/api/peddy/pet/${id}`)
-  const data = await res.json();
-  const petDataByID = data.petData;
-  likePetsImageDisplay(petDataByID);
-}
+  console.log(petImg);
 
-const likePetsImageDisplay = (petDataByID) => {
-  const likedPetImagesContainer =document.getElementById("liked-pet-image-container");
+  const likedPetImagesContainer = document.getElementById("liked-pet-image-container");
   const div = document.createElement("div");
   div.innerHTML = `
-    <div>
+    <div class="border border-gray-100 rounded-md p-2 shadow-sm">
+      <img src="${petImg}" alt="" class="h-[120px] w-full rounded-lg object-cover">
+    </div>
+  `;
+  likedPetImagesContainer.append(div);
+
+  // const res = await fetch(`https://openapi.programming-hero.com/api/peddy/pet/${id}`)
+  // const data = await res.json();
+  // const petDataByID = data.petData;
+  // likePetsImageDisplay(petDataByID);
+};
+
+/**const likePetsImageDisplay = (petDataByID) => {
+  const likedPetImagesContainer = document.getElementById("liked-pet-image-container");
+  const div = document.createElement("div");
+  div.innerHTML = `
+    <div class="border border-gray-100 rounded-md p-2 shadow-sm">
       <img src="${petDataByID.image}" alt="" class="h-[120px] w-full rounded-lg object-cover">
     </div>
   `;
   likedPetImagesContainer.append(div);
+};*/
+
+// Show loading
+const showLoading = () => {
+  const loadingContainer = document.getElementById("loading-container");
+  const petCardMainContainer = document.getElementById(
+    "pets-card-main-container"
+  );
+  petCardMainContainer.classList.add("hidden");
+  loadingContainer.classList.remove("hidden");
+
+  setTimeout(() => {
+    petCardMainContainer.classList.remove("hidden");
+    loadingContainer.classList.add("hidden");
+  }, 2000);
 };
+
+// Adoption button functionality
+const adoptionStart = (id) => {
+  let totalTime = 3;
+  const adoptionModal = document.getElementById("adoption-modal");
+  const adoptionBtn = document.getElementById(`adoption-btn-${id}`);
+  const modalTimeCount = document.getElementById("modal-time-count");
+
+  console.log(adoptionBtn);
+  adoptionModal.showModal();
+
+  const modalTimeCountFunc = setInterval(function () {
+    if (totalTime <= 0) {
+      clearInterval(modalTimeCountFunc);
+      document
+        .getElementById("adoption-close")
+        .dispatchEvent(new MouseEvent("click"));
+    } else {
+      modalTimeCount.innerHTML = totalTime;
+    }
+    totalTime--;
+  }, 1000);
+
+  adoptionBtn.innerHTML = "Adopted";
+  adoptionBtn.disabled = true;
+  adoptionBtn.classList.remove("text-primary-color", "hover:bg-primary-color");
+  adoptionBtn.classList.add("bg-gray-400", "text-white");
+  modalTimeCount.innerHTML = 3;
+};
+
+
 
 // Show Details functionality 
 const showDetails = async (detailsId) => {
@@ -194,15 +249,15 @@ const petDetailsDisplay = (detailsData) => {
 
   const {breed, image, pet_name, date_of_birth, gender, price, vaccinated_status, pet_details } = detailsData;
   modalContainer.innerHTML = `
-            <dialog id="customModal" class="modal">
+        <dialog id="customModal" class="modal">
           <div class="modal-box p-8">
             <figure>
               <img src="${image}" alt="Shoes"
-                class="rounded-xl h-full w-full" />
+                class="rounded-xl h-[300px] w-full object-cover" />
             </figure>
             <div class="py-4 space-y-1">
               <h2 class="font-inter font-bold text-xl py-2 text-text-black">${pet_name || "Not found"}</h2>
-              <div class="flex justify-between pb-4">
+              <div class="flex flex-col md:flex-row justify-between pb-4">
 
                 <div class="space-y-2">
                   <div class="text-secondary-color font-lato">
@@ -257,3 +312,4 @@ const petDetailsDisplay = (detailsData) => {
 
 loadCategory();
 loadPetsCard();
+

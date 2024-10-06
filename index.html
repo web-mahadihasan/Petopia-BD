@@ -38,8 +38,6 @@
 </head>
 <body>
   <!-- Header section  -->
-  <!-- Header -->
-<!-- after:absolute after:top-full after:left-0 after:z-10 after:block after:h-px after:w-full after:bg-slate-200 -->
   <header
     class="z-20 w-full border-b shadow-lg border-slate-200 bg-white/90 shadow-slate-700/5  lg:border-slate-200 lg:backdrop-blur-sm sticky top-0">
     <div class="max-w-screen-xl relative mx-auto px-4">
@@ -50,7 +48,7 @@
           <span><img src="./images/logo.webp" alt=""></span>
           <span class=" font-bold text-3xl">Petopia</span>
         </div>
-        <!-- Mobile trigger -->
+        <!-- Mobile Hamburger -->
         <button id="hamburger-btn" class="relative self-center order-10 visible block w-10 h-10 opacity-100 md:hidden">
           <div class="absolute w-6 transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
             <span aria-hidden="true"
@@ -76,7 +74,7 @@
             </a>
           </div>
         </div>
-        <!-- Actions -->
+        <!-- profile avatar -->
         <div class="flex items-center justify-end px-6 ml-auto lg:ml-0 lg:flex-1 lg:p-0">
           <a href="#"
             class="relative inline-flex items-center justify-center w-10 h-10 text-lg rounded-full border border-slate-200 hover:bg-slate-100 duration-300 ease-in-out">
@@ -117,6 +115,7 @@
      </section>
     <!-- Banner section  -->
 
+
     <!-- Adopt your best friend section  -->
      <section id="main" class="max-w-screen-xl mx-auto px-4">
         <div class="text-center py-12 font-lato">
@@ -126,32 +125,13 @@
         </div>
 
         <!-- Category button  -->
-         <div id="category-btn-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 justify-items-center">
-
-          <!-- <button class="flex items-center gap-1 py-3 px-16 border border-gray-200 rounded-xl justify-center ">
-            <span><img src="./images/cats.svg" alt="" class="w-12"></span>
-            <span class="font-bold text-text-black font-inter text-2xl">Cats</span>
-          </button>
-
-          <button class="flex items-center gap-1 py-3 px-16 border border-gray-200 rounded-xl justify-center ">
-            <span><img src="./images/cats.svg" alt="" class="w-12"></span>
-            <span class="font-bold text-text-black font-inter text-2xl">Cats</span>
-          </button>
-
-          <button class="flex items-center gap-1 py-3 px-16 border border-gray-200 rounded-xl justify-center">
-            <span><img src="./images/cats.svg" alt="" class="w-12"></span>
-            <span class="font-bold text-text-black font-inter text-2xl">Cats</span>
-          </button>
-
-          <button class="flex items-center gap-1 py-3 px-16 border border-gray-200 rounded-xl justify-center">
-            <span><img src="./images/cats.svg" alt="" class="w-12"></span>
-            <span class="font-bold text-text-black font-inter text-2xl">Cats</span>
-          </button> -->
+         <div id="category-btn-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 ">
 
          </div>
         <!-- Category button  -->
      </section>
     <!-- Adopt your best friend section  -->
+
 
     <!-- Display card section  -->
      <section id="" class="max-w-screen-xl mx-auto px-4 py-8">
@@ -160,10 +140,17 @@
           <button id="sort-btn" class="py-3 px-6 bg-primary-color rounded-md text-white font-lato font-medium hover:bg-primary-color/85 duration-300 ease-in-out">Sort by Price</button>
         </div>
 
-        <!-- pet cards data container-->
-        <div class="grid grid-cols-1 lg:grid-cols-4 lg:space-x-5 space-y-6 lg:space-y-0">
-          <div id="pet-cards-container" class="col-span-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <!-- Loader  -->
+          <div id="loading-container" class="hidden col-span-4 rounded-xl bg-white">
+            <div class="flex h-[500px] justify-center">
+              <span class="loading loading-bars loading-lg"></span>
+            </div>
+          </div>
+          <!-- Loader  -->
 
+        <!-- pet cards data container-->
+        <div id="pets-card-main-container" class="grid grid-cols-1 lg:grid-cols-4 lg:space-x-5 space-y-6 lg:space-y-0">
+          <div id="pet-cards-container" class="col-span-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
            <!-- pets cards  -->
             <!-- <div class=" bg-base-100 shadow border border-gray-100 p-4 gap-4 rounded-xl">
               <figure>
@@ -204,14 +191,6 @@
 
           </div>
 
-          <!-- Loader  -->
-          <div class="hidden col-span-3 rounded-xl bg-[#F8F8F8]">
-            <div class="flex h-[500px] justify-center items-center ">
-          
-            </div>
-          </div>
-          <!-- Loader  -->
-
           <!-- if Category not found  -->
           <div id="pets-not-found" class="hidden col-span-3 rounded-xl bg-[#F8F8F8]">
             <div class="flex h-[500px] justify-center items-center ">
@@ -225,100 +204,47 @@
               </div>
             </div>
           </div>
+          
 
-
-          <!-- pet adopt image -->
+          <!-- pet liked button image -->
           <div class="col-span-1">
-            <div class="p-4 min-h-[500px] border border-gray-200 shadow-sm rounded-xl">
-              <div id="liked-pet-image-container"
-                class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-2 gap-4 ">
+            <div class="p-3 min-h-[500px] border border-gray-200 shadow-sm rounded-xl">
+              <div id="liked-pet-image-container" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-2 gap-3 ">
                 <!-- pet images from API  -->
               </div>
             </div>
           </div>
+          
 
          </div>
      </section>
 
+
      <!-- Modal section  -->
      <section  class="max-w-screen-xl mx-auto px-4 py-8">
+
       <!-- modal one  -->
        <div id="modal-container">
-        <!-- <dialog id="my_modal_1" class="modal">
-          <div class="modal-box p-8">
-            <figure>
-              <img src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp" alt="Shoes"
-                class="rounded-xl h-full w-full" />
-            </figure>
-            <div class="py-4 space-y-1">
-              <h2 class="font-inter font-bold text-xl py-2 text-text-black">Mister Tartosh</h2>
-              <div class="flex justify-between pb-4">
-
-                <div class="space-y-2">
-                  <div class="text-secondary-color font-lato">
-                    <span><i class="ri-function-add-line text-xl font-medium align-middle"></i></span>
-                    <span class="ml-1">Breed: <span>Golder retriever</span></span>
-                  </div>
-                  <div class="text-secondary-color font-lato">
-                    <span><i class="ri-share-line text-xl font-medium align-middle"></i></span>
-                    <span class="ml-1">Gender: <span>Female</span></span>
-                  </div>
-                  <div class="text-secondary-color font-lato">
-                    <span><i class="ri-share-line text-xl font-medium align-middle"></i></span>
-                    <span class="ml-1">Vaccinated status: <span>Partially</span></span>
-                  </div>
-                </div>
-
-                <div class="space-y-2">
-                  <div class="text-secondary-color font-lato">
-                    <span><i class="ri-calendar-schedule-line text-xl font-medium align-middle"></i></span>
-                    <span class="ml-1">Birth: <span>2024</span></span>
-                  </div>
-                  <div class=" text-secondary-color font-lato">
-                    <span><i class="ri-money-dollar-circle-line text-xl font-medium align-middle"></i></span>
-                    <span class="ml-1">Price : <span>Price : 199$</span></span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="border-t border-gray-200"></div>
-              <div class="pt-5">
-                <h3 class="text-lg font-bold font-inter text-text-black font-inter">Details Information</h3>
-                <p class="text-base py-3 font-normal font-inter text-secondary-color">
-                  It is a long established fact that a reader will be distracted by the readable content of a page when looking at its
-                  layout.
-                  The point of using is that it has a more-or-less normal distribution of letters, as opposed to using.
-                </p>
-              </div>
-            </div>
-
-            <div class="w-full">
-              <form method="dialog">
-                <button class="btn w-full bg-[#EFF2F2] border border-primary-color/20 hover:bg-primary-color hover:text-white">Close</button>
-              </form>
-            </div>
-          </div>
-        </dialog> -->
+        <!-- modal body  -->
        </div>
 
        <!-- modal two  -->
         <div>
-          <!-- Open the modal using ID.showModal() method -->
-          <button class="btn" onclick="my_modal_2.showModal()">open modal</button>
-          <dialog id="my_modal_2" class="modal">
-            <div class="modal-box">
-              <h3 class="text-lg font-bold">Hello!</h3>
-              <p class="py-4">Press ESC key or click the button below to close</p>
-
+          <dialog id="adoption-modal" class="modal">
+            <div class="modal-box text-center space-y-3 mt-2">
+              <img src="./images/collaboration.png" alt="" class="mx-auto">
+              <h3 class="text-3xl font-bold font-inter text-text-black">Congrats</h3>
+              <p class="text-base font-medium font-inter text-text-black">Adoption process start for your pet</p>
+              <h3 id="modal-time-count" class="text-5xl font-extrabold text-text-black font-inter py-3">3</h3>
             <div class="w-full">
               <form method="dialog">
-                <!-- if there is a button in form, it will close the modal -->
-                <button
-                  class="btn w-full bg-[#EFF2F2] border border-primary-color/20 hover:bg-primary-color hover:text-white">Close</button>
+                <button id="adoption-close"
+                  class="hidden btn w-full bg-[#EFF2F2] border border-primary-color/20 hover:bg-primary-color hover:text-white" >Close</button>
               </form>
             </div>
             </div>
           </dialog>
+
         </div>
      </section>
     <!-- Display card section  -->
@@ -358,6 +284,8 @@
     </section>
   </footer>
   <!-- Footer section  -->
+
+
   <!-- Js file -->
    <script src="./js/app.js"></script>
 </body>
