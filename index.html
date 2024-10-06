@@ -161,7 +161,7 @@
         </div>
 
         <!-- pet cards data container-->
-        <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+        <div class="grid grid-cols-1 lg:grid-cols-4 lg:space-x-5 space-y-6 lg:space-y-0">
           <div id="pet-cards-container" class="col-span-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
 
            <!-- pets cards  -->
@@ -229,7 +229,7 @@
 
           <!-- pet adopt image -->
           <div class="col-span-1">
-            <div class="p-4 min-h-[400px] border border-gray-200 shadow-sm rounded-xl">
+            <div class="p-4 min-h-[500px] border border-gray-200 shadow-sm rounded-xl">
               <div id="liked-pet-image-container"
                 class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-2 gap-4 ">
                 <!-- pet images from API  -->
@@ -241,12 +241,10 @@
      </section>
 
      <!-- Modal section  -->
-     <section class="max-w-screen-xl mx-auto px-4 py-8">
+     <section  class="max-w-screen-xl mx-auto px-4 py-8">
       <!-- modal one  -->
-       <div>
-        <!-- Open the modal using ID.showModal() method -->
-        <button class="btn" onclick="my_modal_1.showModal()">open modal</button>
-        <dialog id="my_modal_1" class="modal">
+       <div id="modal-container">
+        <!-- <dialog id="my_modal_1" class="modal">
           <div class="modal-box p-8">
             <figure>
               <img src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp" alt="Shoes"
@@ -296,12 +294,11 @@
 
             <div class="w-full">
               <form method="dialog">
-                <!-- if there is a button in form, it will close the modal -->
                 <button class="btn w-full bg-[#EFF2F2] border border-primary-color/20 hover:bg-primary-color hover:text-white">Close</button>
               </form>
             </div>
           </div>
-        </dialog>
+        </dialog> -->
        </div>
 
        <!-- modal two  -->

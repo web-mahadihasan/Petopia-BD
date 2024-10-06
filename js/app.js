@@ -156,6 +156,7 @@ const sortedData = (sortData) => {
   });
 };
 
+
 // Like button functionality
 const likedPets = async (id) => {
   const likeUnClick = document.getElementById(`normal-${id}`);
@@ -179,6 +180,79 @@ const likePetsImageDisplay = (petDataByID) => {
   `;
   likedPetImagesContainer.append(div);
 };
+
+// Show Details functionality 
+const showDetails = async (detailsId) => {
+  const res = await fetch(`https://openapi.programming-hero.com/api/peddy/pet/${detailsId}`)
+  const data = await res.json();
+  const detailsData = data.petData;
+  petDetailsDisplay(detailsData);
+} 
+
+const petDetailsDisplay = (detailsData) => {
+  const modalContainer = document.getElementById("modal-container");
+
+  const {breed, image, pet_name, date_of_birth, gender, price, vaccinated_status, pet_details } = detailsData;
+  modalContainer.innerHTML = `
+            <dialog id="customModal" class="modal">
+          <div class="modal-box p-8">
+            <figure>
+              <img src="${image}" alt="Shoes"
+                class="rounded-xl h-full w-full" />
+            </figure>
+            <div class="py-4 space-y-1">
+              <h2 class="font-inter font-bold text-xl py-2 text-text-black">${pet_name || "Not found"}</h2>
+              <div class="flex justify-between pb-4">
+
+                <div class="space-y-2">
+                  <div class="text-secondary-color font-lato">
+                    <span><i class="ri-function-add-line text-xl font-medium align-middle"></i></span>
+                    <span class="ml-1">Breed: <span>${breed || "Not found"}</span></span>
+                  </div>
+                  <div class="text-secondary-color font-lato">
+                    <span><i class="ri-share-line text-xl font-medium align-middle"></i></span>
+                    <span class="ml-1">Gender: <span>${gender || "Not found"}</span></span>
+                  </div>
+                  <div class="text-secondary-color font-lato">
+                    <span><i class="ri-share-line text-xl font-medium align-middle"></i></span>
+                    <span class="ml-1">Vaccinated status: <span>${vaccinated_status || "Not found"}</span></span>
+                  </div>
+                </div>
+
+                <div class="space-y-2">
+                  <div class="text-secondary-color font-lato">
+                    <span><i class="ri-calendar-schedule-line text-xl font-medium align-middle"></i></span>
+                    <span class="ml-1">Birth: <span>${date_of_birth || "Not found"}</span></span>
+                  </div>
+                  <div class=" text-secondary-color font-lato">
+                    <span><i class="ri-money-dollar-circle-line text-xl font-medium align-middle"></i></span>
+                    <span class="ml-1">Price : <span>Price : ${price || "Not available"}</span></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="border-t border-gray-200"></div>
+              <div class="pt-5">
+                <h3 class="text-lg font-bold font-inter text-text-black font-inter">Details Information</h3>
+                <p class="text-base py-3 font-normal font-inter text-secondary-color"> ${pet_details || "Not found"}
+                </p>
+              </div>
+            </div>
+
+            <div class="w-full">
+              <form method="dialog">
+                <!-- if there is a button in form, it will close the modal -->
+                <button class="btn w-full bg-[#EFF2F2] border border-primary-color/20 hover:bg-primary-color hover:text-white">Close</button>
+              </form>
+            </div>
+          </div>
+        </dialog>
+  `;
+
+  customModal.showModal();
+
+}
+
 
 
 loadCategory();
