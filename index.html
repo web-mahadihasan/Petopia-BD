@@ -162,7 +162,7 @@
 
         <!-- pet cards data container-->
         <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
-          <div id="pet-cards-container" class="col-span-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border border-red-400 gap-4">
+          <div id="pet-cards-container" class="col-span-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
 
            <!-- pets cards  -->
             <!-- <div class=" bg-base-100 shadow border border-gray-100 p-4 gap-4 rounded-xl">
@@ -213,7 +213,7 @@
           <!-- Loader  -->
 
           <!-- if Category not found  -->
-          <div class="hidden col-span-3 rounded-xl bg-[#F8F8F8]">
+          <div id="pets-not-found" class="hidden col-span-3 rounded-xl bg-[#F8F8F8]">
             <div class="flex h-[500px] justify-center items-center ">
               <div class="flex flex-col justify-center items-center space-y-3">
                 <img src="./images/error.webp" alt="">
@@ -228,13 +228,15 @@
 
 
           <!-- pet adopt image -->
-          <div class="col-span-1 border border-red-400 p-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-2 gap-4">
-
-            <div>
-              <img src="" alt="" class="h-[120px] w-full rounded-lg">
+          <div class="col-span-1">
+            <div class="p-4 min-h-[400px] border border-gray-200 shadow-sm rounded-xl">
+              <div id="liked-pet-image-container"
+                class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-2 gap-4 ">
+                <!-- pet images from API  -->
+              </div>
             </div>
-
           </div>
+
          </div>
      </section>
 
