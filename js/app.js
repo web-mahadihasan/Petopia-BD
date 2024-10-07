@@ -19,14 +19,6 @@ const loadCategory = async () => {
   displayCategoriesBtn(categories);
 }
 
-// Load all pets card 
-const loadPetsCard = async () => {
-  const res = await fetch(`https://openapi.programming-hero.com/api/peddy/pets`);
-  const data = await res.json();
-  const allPets = data.pets;
-  displayPetsData(allPets);
-}
-
 // Category btn functionality & show category pets
 const categoriesPetsDisplay = async (category) => {
   const res = await fetch(`https://openapi.programming-hero.com/api/peddy/category/${category}`);
@@ -62,6 +54,14 @@ const displayCategoriesBtn = (categories) => {
   categoriesContainer.append(div);
   });
 };
+
+// Load all pets card 
+const loadPetsCard = async () => {
+  const res = await fetch(`https://openapi.programming-hero.com/api/peddy/pets`);
+  const data = await res.json();
+  const allPets = data.pets;
+  displayPetsData(allPets);
+}
 
 
 // Display pets data card
@@ -170,10 +170,7 @@ const likedPets = async (petImg, id) => {
     </div>
   `;
   likedPetImgContainer.append(div);
-
-
 };
-
 
 
 // Show loading
@@ -217,7 +214,6 @@ const adoptionStart = (id) => {
   adoptionBtn.classList.add("bg-gray-400", "text-white");
   modalTimeCount.innerHTML = 3;
 };
-
 
 
 // Show Details functionality 
@@ -291,7 +287,6 @@ const petDetailsDisplay = (detailsData) => {
   customModal.showModal();
 
 }
-
 
 
 loadCategory();
