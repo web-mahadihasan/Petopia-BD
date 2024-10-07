@@ -118,7 +118,7 @@ const displayPetsData = (allPets) => {
           <div class="border-t border-gray-200"></div>
 
           <div class="pt-3 flex justify-between items-center">
-            <button onclick="likedPets(${petId})" class="flex flex-col py-1 px-4 rounded-md border border-primary-color/20 font-lato text-xl text-gray-500">
+            <button onclick="likedPets('${image}', ${petId})" class="flex flex-col py-1 px-4 rounded-md border border-primary-color/20 font-lato text-xl text-gray-500">
               <span id="normal-${petId}"><i class="ri-thumb-up-line"></i></span>
               <span id="liked-${petId}" class="hidden text-primary-color"><i class="ri-thumb-up-fill"></i></span>
             </button>
@@ -156,28 +156,25 @@ const sortedData = (sortData) => {
 
 
 // Like button functionality
-const likedPets = async (id) => {
-  const likeUnClick = document.getElementById(`normal-${id}`);
-  likeUnClick.classList.add("hidden");
+const likedPets = async (petImg, id) => {
+  const likeNormal = document.getElementById(`normal-${id}`);
+  likeNormal.classList.add("hidden");
   const likeClick = document.getElementById(`liked-${id}`);
   likeClick.classList.remove("hidden");
 
-  const res = await fetch(`https://openapi.programming-hero.com/api/peddy/pet/${id}`)
-  const data = await res.json();
-  const petDataByID = data.petData;
-  likePetsImageDisplay(petDataByID);
-};
-
-const likePetsImageDisplay = (petImgId) => {
-  const likedPetImagesContainer = document.getElementById("liked-pet-image-container");
+  const likedPetImgContainer = document.getElementById("liked-pet-image-container");
   const div = document.createElement("div");
   div.innerHTML = `
     <div class="border border-gray-100 rounded-md p-2 shadow-sm">
-      <img src="${petImgId.image}" alt="" class="h-[120px] w-full rounded-lg object-cover">
+      <img src="${petImg}" alt="" class="h-[120px] w-full rounded-lg object-cover">
     </div>
   `;
-  likedPetImagesContainer.append(div);
+  likedPetImgContainer.append(div);
+
+
 };
+
+
 
 // Show loading
 const showLoading = () => {
