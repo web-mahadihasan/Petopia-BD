@@ -54,7 +54,7 @@ const displayCategoriesBtn = (categories) => {
   categories.forEach(btnData => {
     const div = document.createElement("div");
     div.innerHTML = `
-      <button id="${btnData.category}" onclick="categoriesPetsDisplay('${btnData.category}')" class="category-btn flex items-center gap-1 py-3 border border-gray-200 rounded-xl justify-center w-3/4 mx-auto">
+      <button id="${btnData.category}" onclick="categoriesPetsDisplay('${btnData.category}')" class="category-btn flex items-center gap-1 py-3 border border-gray-200 rounded-xl justify-center w-full lg:w-2/3 mx-auto">
         <span><img src="${btnData.category_icon}" alt="" class="w-10"></span>
         <span class="font-bold text-text-black font-inter text-2xl">${btnData.category}</span>
       </button>
@@ -118,12 +118,12 @@ const displayPetsData = (allPets) => {
           <div class="border-t border-gray-200"></div>
 
           <div class="pt-3 flex justify-between items-center">
-            <button onclick="likedPets('${image}', ${petId})" class="flex flex-col py-1 px-4 rounded-md border border-primary-color/20 font-lato text-xl text-gray-500">
+            <button onclick="likedPets('${image}', ${petId})" class="flex flex-col py-1 px-4 lg:px-3 xl:px-5 rounded-md border border-primary-color/20 font-lato text-base text-gray-500">
               <span id="normal-${petId}"><i class="ri-thumb-up-line"></i></span>
               <span id="liked-${petId}" class="hidden text-primary-color"><i class="ri-thumb-up-fill"></i></span>
             </button>
-            <button id="adoption-btn-${petId}" onclick="adoptionStart(${petId})" class="py-1 px-4 rounded-md border border-primary-color/20 font-semibold font-lato text-base text-primary-color hover:bg-primary-color hover:text-white duration-300 ease-in-out">Adopt</button>
-            <button onclick="showDetails(${petId})" class="py-1 px-4 rounded-md border border-primary-color/20 font-semibold font-lato text-base text-primary-color hover:bg-primary-color hover:text-white duration-300 ease-in-out">Details</button>
+            <button id="adoption-btn-${petId}" onclick="adoptionStart(${petId})" class="py-1 px-4 lg:px-3 xl:px-4 rounded-md border border-primary-color/20 font-semibold font-lato text-base text-primary-color hover:bg-primary-color hover:text-white duration-300 ease-in-out">Adopt</button>
+            <button onclick="showDetails(${petId})" class="py-1 px-5 lg:px-3 xl:px-5 rounded-md border border-primary-color/20 font-semibold font-lato text-base text-primary-color hover:bg-primary-color hover:text-white duration-300 ease-in-out">Details</button>
           </div>
         </div>
       </div>
